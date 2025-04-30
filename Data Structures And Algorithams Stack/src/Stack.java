@@ -1,4 +1,4 @@
-import LinkedList.Node;
+
 
 public class Stack {
 	   class Node{
@@ -25,14 +25,22 @@ public class Stack {
 		          top=newNode;
 		          }
 		   	   }
+	   public void pop() {
+		   if(top==null) {
+			   System.out.println("stack underflow");
+			   return;
+		   }else {
+			   top=top.next;
+		   }
+	   }
 	  	   
 	  
 	   
 	   public void printList() {
-		   if(head==null) {
+		   if(top==null) {
 			   System.out.println("empty");
 			   return;
-		   }Node current=head;
+		   }Node current=top;
 		   while(current!=null) {
 			   System.out.print(current.data+"->");
 			   current=current.next;
@@ -41,6 +49,12 @@ public class Stack {
 		   
 	   }
 	  public static void main(String[] args) {
-		
+		Stack sc=new Stack();
+		sc.push(10);
+		sc.push(30);
+		sc.push(40);
+		sc.printList();
+		sc.pop();
+		sc.printList();
 
 }}
